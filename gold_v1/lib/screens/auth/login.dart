@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+    
       body: Column(
         children: [
           Stack(
@@ -139,41 +139,41 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(height: 5),
-Padding(
-  padding: EdgeInsets.symmetric(horizontal: 20),
-  child: SizedBox(
-    width: double.infinity,
-    height: 50,
-    child: OutlinedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => PinLogin(), // Replace with your target page
-          ),
-        );
-      },
-      style: OutlinedButton.styleFrom(
-        backgroundColor: Color(0xFFFFD700),
-        padding: EdgeInsets.symmetric(vertical: 12),
-        side: BorderSide(color: Color(0xFFFFD700)),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-      child: Text(
-        "ເຂົ້າລະບົບດ້ວຍ PIN",
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-      ),
-    ),
-  ),
-),
-
-
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) =>
+                                      PinLogin(), // Replace with your target page
+                            ),
+                          );
+                        },
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: Color(0xFFFFD700),
+                          padding: EdgeInsets.symmetric(vertical: 12),
+                          side: BorderSide(color: Color(0xFFFFD700)),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: Text(
+                          "ເຂົ້າລະບົບດ້ວຍ PIN",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
 
                   SizedBox(height: 20),
                   Padding(
@@ -190,14 +190,20 @@ Padding(
                                 decoration: InputDecoration(
                                   hintText: "ປ້ອນລະຫັດຜ່ານ",
                                   hintStyle: TextStyle(color: Colors.white),
-                                  prefixIcon: Icon(Icons.lock, color: Colors.white),
+                                  prefixIcon: Icon(
+                                    Icons.lock,
+                                    color: Colors.white,
+                                  ),
                                   suffixIcon: GestureDetector(
                                     onTap: () {
                                       setState(() {
                                         _showInput = false;
                                       });
                                     },
-                                    child: Icon(Icons.close, color: Colors.white),
+                                    child: Icon(
+                                      Icons.close,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
