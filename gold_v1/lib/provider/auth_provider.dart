@@ -15,7 +15,7 @@ class AuthProvider extends ChangeNotifier {
   final AuthService authService = AuthService();
 
   Future<void> register({
-    required String username,
+    required String phonenumber,
     required String userpassword,
     required String pinUser,
   }) async {
@@ -23,7 +23,7 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final result = await authService.register(username: username, userpassword: userpassword, pinUser: pinUser);
+      final result = await authService.register(phonenumber: phonenumber, userpassword: userpassword, pinUser: pinUser);
 
       navService.goBack();
 

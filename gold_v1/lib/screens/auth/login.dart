@@ -29,7 +29,6 @@ class _LoginPageState extends State<LoginPage> {
           Stack(
             children: [
               Container(
-                width: 500,
                 height: 600,
                 decoration: BoxDecoration(
                   color: Color(0xFF00674F),

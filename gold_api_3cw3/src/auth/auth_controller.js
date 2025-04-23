@@ -34,7 +34,7 @@ const bcrypt = require("bcrypt");
 const register_user = async (request, respond) => {
   const { 
       
-      user_name,
+      phone_number,
       user_password, 
       pin_user
   } = request.body;
@@ -43,7 +43,7 @@ const register_user = async (request, respond) => {
   const encryptPassword = await bcrypt.hash(user_password || secretkey, 10);
 
   // Check if the user already exists
-  connected.query(queries.check_user, [user_name], (error, results) => {
+  connected.query(queries.check_user, [phone_number], (error, results) => {
     if(error)throw error;
       if (results.length) {
           respond.json({ resultCode: "ຜູ້ໃຊ້ນີ້ມີໃນລະບົບແລ້ວ" });
@@ -55,7 +55,7 @@ const register_user = async (request, respond) => {
       connected.query(
           queries.register,
           [
-              user_name,
+              phone_number,
               encryptPassword,
               pin_user,
               new Date(), // create_at
@@ -75,15 +75,15 @@ const register_user = async (request, respond) => {
 
 
 const login_ByPassWord = (request, respond) => {
-  const { user_name, user_password } = request.body;
+  const { phone_number, user_password } = request.body;
 
-  if (!user_name || !user_password ) {
+  if (!phone_number || !user_password ) {
     return respond
       .status(400)
       .json({ resultCode: "missing username, password or pin" });
   }
 
-  connected.query(queries.login_user, [user_name], async (error, results) => {
+  connected.query(queries.login_user, [phone_number], async (error, results) => {
     if (error) {
       console.error("Database query error:", error);
       return respond.status(500).json({ resultCode: "internal server error" });
@@ -111,6 +111,7 @@ const login_ByPassWord = (request, respond) => {
         resultCode: "OK",
         id_user: user.user_id,
         user_name: user.user_name,
+        phone_number: user.phone_number,
         user_status: user.user_status_id,
         role_name: user.role_name,
         depart_name: user.depart_name,

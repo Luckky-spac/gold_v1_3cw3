@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class AuthService {
   Dio dio = Dio();
   Future<dynamic> register({
-    required String username,
+    required String phonenumber,
     required String userpassword,
     required String pinUser,
   }) async {
@@ -11,7 +11,7 @@ class AuthService {
       final response = await dio.post(
         'http://localhost:2020/auth/register',
         data: {
-          'user_name': username,
+          'phone_number': phonenumber,
           'user_password': userpassword,
           'pin_user': pinUser,
         },

@@ -29,7 +29,7 @@ class _RegisterState extends State<Register> {
     String phoneNumber = phoneController.text.trim();
     String password = passwordController.text.trim();
     context.read<AuthProvider>().register(
-      username: phoneNumber,
+      phonenumber: phoneNumber,
       userpassword: password,
       pinUser: pinController.text.trim(),
     );
@@ -47,9 +47,9 @@ class _RegisterState extends State<Register> {
     }
 
     if (phoneNumber.isEmpty) {
-      showSnackBar("user name");
-    } else if (!RegExp('user_name').hasMatch(phoneNumber)) {
-      showSnackBar("ເບີໂທບໍ່ຖືກຕ້ອງ");
+      showSnackBar("ກະລຸນາປ້ອນເບີໂທ");
+    } else if (!RegExp('ກະລຸນາປ້ອນເບີໂທ').hasMatch(phoneNumber)) {
+      showSnackBar("ລົງຖະບຽນສຳເລັດແລ້ວ");
     } else if (password.isEmpty || password.length < 6) {
       showSnackBar("ລະຫັດຜ່ານຕ້ອງມີຢ່າງນ້ອຍ 6 ຕົວອັກສອນ");
     } else {
