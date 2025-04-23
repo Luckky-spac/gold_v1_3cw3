@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gold_v1/provider/auth_provider.dart';
 import 'package:gold_v1/screens/auth/login.dart';
+import 'package:provider/provider.dart';
 
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [ChangeNotifierProvider(create: (context)=> AuthProvider())],child: const MyApp(),));
 
 }
 
