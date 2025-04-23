@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gold_v1/screens/auth/home/functions/buy_gold.dart';
+import 'package:gold_v1/screens/auth/home/functions/withdraw_gold.dart';
 import 'package:gold_v1/screens/auth/login.dart';
 import 'package:gold_v1/screens/auth/promision.dart';
 
