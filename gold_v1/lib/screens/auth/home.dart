@@ -3,6 +3,7 @@ import 'package:gold_v1/screens/auth/home/functions/buy_gold.dart';
 import 'package:gold_v1/screens/auth/home/functions/withdraw_gold.dart';
 import 'package:gold_v1/screens/auth/login.dart';
 import 'package:gold_v1/screens/auth/promision.dart';
+import 'package:gold_v1/screens/auth/home/functions/sell_gold.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -52,12 +53,13 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-      
+
             // Login/Registration Card
             Transform.translate(
               offset: const Offset(0, -100),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   color: Color(0xFF00674F),
@@ -72,7 +74,8 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const LoginPage()),
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -80,7 +83,8 @@ class _HomePageState extends State<HomePage> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 40),
                         minimumSize: const Size(double.infinity, 50),
                       ),
                       child: const Text(
@@ -96,11 +100,20 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: const [
                         Expanded(
-                          child: Divider(color: Colors.white, thickness: 2, indent: 10, endIndent: 10),
+                          child: Divider(
+                              color: Colors.white,
+                              thickness: 2,
+                              indent: 10,
+                              endIndent: 10),
                         ),
-                        Text("ທ່ານຍັງບໍ່ມີບັນຊີ?", style: TextStyle(color: Colors.white)),
+                        Text("ທ່ານຍັງບໍ່ມີບັນຊີ?",
+                            style: TextStyle(color: Colors.white)),
                         Expanded(
-                          child: Divider(color: Colors.white, thickness: 2, indent: 10, endIndent: 10),
+                          child: Divider(
+                              color: Colors.white,
+                              thickness: 2,
+                              indent: 10,
+                              endIndent: 10),
                         ),
                       ],
                     ),
@@ -109,7 +122,8 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Promision()),
+                          MaterialPageRoute(
+                              builder: (context) => const Promision()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -118,7 +132,8 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(15),
                           side: const BorderSide(color: Colors.white),
                         ),
-                        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 40),
                         minimumSize: const Size(double.infinity, 50),
                       ),
                       child: const Text(
@@ -133,39 +148,68 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-            ),  
-            // Feature Icons
+            ),
+            // Feature Icons & Button
             Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    children: [
-                      Image.asset('assets/icon-ban.png', width: 50),
-                      const SizedBox(height: 5),
-                      const Text("ຊື້ຄຳ", style: TextStyle(color: Colors.black87)),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BuyGold()), // ใช้หน้าของ BuyGold
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Image.asset('assets/icon-ban.png', width: 50),
+                        const SizedBox(height: 5),
+                        const Text("ຊື້ຄຳ",
+                            style: TextStyle(color: Colors.black87)),
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Image.asset('assets/icon-ban.png', width: 50),
-                      const SizedBox(height: 5),
-                      const Text("ຂາຍຄຳ", style: TextStyle(color: Colors.black87)),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SellGold()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Image.asset('assets/icon-ban.png', width: 50),
+                        const SizedBox(height: 5),
+                        const Text("ຂາຍຄຳ",
+                            style: TextStyle(color: Colors.black87)),
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Image.asset('assets/icon-ban.png', width: 50),
-                      const SizedBox(height: 5),
-                      const Text("ຖອນຄຳ", style: TextStyle(color: Colors.black87)),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WithdrawGold()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Image.asset('assets/icon-ban.png', width: 50),
+                        const SizedBox(height: 5),
+                        const Text("ຖອນຄຳ",
+                            style: TextStyle(color: Colors.black87)),
+                      ],
+                    ),
                   ),
-                  
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),
